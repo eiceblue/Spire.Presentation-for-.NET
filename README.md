@@ -43,6 +43,7 @@ By using Spire.Presentation, developers can build any type of a 32-bit or 64-bit
 <ul>
 <li>Window Forms Support</li>
 <li>Asp.NET Support</li>
+<li>.NET Core Support</li>
 <li>Windows Service Support</li>
 </ul>
 
