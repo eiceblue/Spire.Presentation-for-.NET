@@ -3,7 +3,7 @@ Spire.Presentation for .NET
 
 Spire.Presentation for .NET is a professional PowerPoint® compatible component that enables developers to create, read, write, and modify PowerPoint® documents from any .NET(C#, VB.NET, ASP.NET,.NET Core) platform. As an independent PowerPoint .NET component, Spire.Presentation for .NET doesn't need Microsoft PowerPoint installed on the machine.
 
-Spire.Presentation for .NET support PPT, PPS, PPTX and PPSX presentation formats. It provides functions such as managing text, image, shapes, tables, animations, audio and video on slides. It also support exporting presentation slides to EMF, JPG, PDF format etc.
+Spire.Presentation for .NET support PPT, PPS, PPTX and PPSX presentation formats. It provides functions such as managing text, image, shapes, tables, animations, audio and video on slides. It also support exporting presentation slides to EMF, JPG, PDF, XPS, SVG, HTML format etc.
 Main Functions
 
 <b>Only Spire.Presentation, No Microsoft PowerPoint Automation</b>
