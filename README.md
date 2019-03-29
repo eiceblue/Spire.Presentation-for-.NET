@@ -12,7 +12,7 @@ As an independent PowerPoint .NET component, Spire.Presentation for .NET doesn't
 
 <b>Convert Presentation Slides with High Quality</b>
 
-By using Spire.Presentation for .NET, developers can export presentation slides to PDF and image (Bitmap, JPG, PNG, EMF, TIFF, GIF and WMF) formats. It supports SmartArt shapre, MSO Charts components and presentation printing.
+By using Spire.Presentation for .NET, developers can export presentation slides to PDF, XPS, SVG, HTML and image (Bitmap, JPG, PNG, EMF, TIFF, GIF and WMF) formats. It supports SmartArt shapre, MSO Charts components and presentation printing.
 
 <b>Summary of Spire.Presentation functions</b>
 <ul>
