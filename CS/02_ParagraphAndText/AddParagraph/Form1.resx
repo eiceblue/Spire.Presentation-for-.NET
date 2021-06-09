@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pbLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADgAAAAwCAYAAABE1blzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAABFtJREFUaEPtms1v
+        VFUYxucP4I8wumJngAUJbkxEw8IYoLFqYiIBNU1QCAwTwvCxNa7cuPBfcOkGHD5iSylQCgj4FWNj5CNt
+        RZpgTBOlyevzzMwLb888d2Z6mCkzCW/yS5reec95fjPn3nsmd0r7Ts3WqVx4UDrxg5F1YC84Cf4A9oxh
+        BmZhJmYrVaYWH+c2s7bUX1SeWHC57WAOqIkGAWZjxlJ5fL5LwdrvpWM3HlHucHOQYaDKzMyupCKlQ5P3
+        KTeaDDAMjDC7koqUqjNLXNd3k+Zh4C6zK6kIlufymGgeCphdSUW4PGtp4xBRU1IRCg7yVbMTc0oqQsHl
+        pKmFmUWz2X8aFNXScuP4+ftmX9/W4/QBzKrFHAqqxhXk1OK/Zl/N6vF6CUqKOX0T9Or3p4mSYk7fBbl0
+        P/tZj3v4ptmhG2Z7r5kd+F6/phMoKeZkC17BefnKuQbbJsw+/8Xs70fNg0l9c+/JWBUI7bpitvOi2VtT
+        DV441WD9abPXz5t9en3l/O1ASTGnJ4LOsYLXTj/AsVtmH0DMpSIuGKHoUfSoPBGUFHOyBachyHA8fgRB
+        9iD8q981Dyb140Oz0UutYo4SJBvONj7xNE8EJcWcngg6B3EeqeJtJpWKKDlnE1dGm08SJcWcngqenm8e
+        TOrL31qlIkos8uaFlfNEUFLM6YngF78Wy7GO4DWpVERJRV781qxcsFRRUszJFuy27izh3BzXYo6SStmB
+        q25BNinm9FXw4X9m714224rbiBJzlFDKRpyLBdmkmCMF08Fz6h4+ufcgt+mMloqk8ylewjJVWVFSzOmp
+        IKXOLTTuh1vwjm+A3LZJLRVJ5yuiKq6mKCnmZAv+hHvbx1fN9mPXsRv3wPSm/xrOu27kSDpfEep2gZJi
+        TrbgJexOXsbWKkpthdROBB6DOMfZHrZjTwu3dmlOgpJiTrbgZQi+ge3UJ202yu9P67A5cCw1B0qKOdmC
+        6kafwm8JadBcijbgKCnm9FXwOBjpwTJ9G/tYjqXmQEkxp6+CZD+Wbxp4tXAMNTZBSTGn74LkI1x00tDd
+        wiu1GtNBSTGnK8F4peSVk2zG3wzQri8e+3CmNXwnOsmRKKNYM0HCr1PvYHeTiqRwe3eww/dAJ8oouhKM
+        x9Iw8Vi7vghvK3vwiVKEX4Qpzb/5P74JqqeIKKN4JoK9JMoo1kywXV8R3fREGcVzwdUEzenL6YlEGcVz
+        wdVMmtOX0xOJMgo+AG1pyp00py+nx2H2VCiFj7BbHp/lTprTl9PjVK/yyYcWc/gjhKF9AMrsSirCn2LU
+        1DIddJgZ2c8qqQh/TDNWnliQgwwyzMzsSipCwXVgrjK1KAcaRJiVmZldSUXqP4cCo8DK4/N2/ObgLldm
+        Y0ZmbWaWUhEXJFXAdW2Vyb8MV9f6OlcTrSXMwCzMxGz1jI2s9dxKKhIFyQj4E/hAgwazMePjzEoqEuUc
+        npP7QA1wnauJ1hJmYBZmYrYVeZXUE6z0P5wHs7sh9QQpAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="lblDescription.Text" xml:space="preserve">
+    <value>Click the button to run.
+Using Spire.Presentation, you can generate, modify, convert, render, and print documents without utlizing Microsoft PowerPoint®. The PPT files generated by Spire.Presentation are compatible with Microsoft PowerPoint.</value>
+  </data>
+</root>
