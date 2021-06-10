@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using Spire.Presentation;
+using Spire.Presentation.Drawing;
+using System.IO;
+
+namespace SpecificSlideToPDF
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();            
+        }
+
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+            //Create PPT document
+            Presentation presentation = new Presentation();
+
+            //Load the PPT document from disk.
+            presentation.LoadFromFile(@"..\..\..\..\..\..\Data\ChangeSlidePosition.pptx");
+
+            //Get the second slide
+            ISlide slide= presentation.Slides[1];
+
+            //String for output file 
+            String result = "Output.pdf";
+
+            //Save the second slide to PDF
+            slide.SaveToFile(result, Spire.Presentation.FileFormat.PDF);
+
+            //Launching the result file.
+            Viewer(result);
+        }
+        private void Viewer(string fileName)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(fileName);
+            }
+            catch { }
+        }
+    }
+}
