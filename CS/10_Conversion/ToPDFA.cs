@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Spire.Presentation;
 using Spire.Presentation.Charts;
 using Spire.Presentation.Collections;
+using Spire.Presentation.External.Pdf;
 
 namespace ToPDFA
 {
@@ -25,17 +26,17 @@ namespace ToPDFA
             ppt.LoadFromFile(@"..\..\..\..\..\..\Data\ToPDF.pptx");
 
             //Save the PPT to PDF_A1A
-            ppt.SaveToPdfOption.PdfConformanceLevel = Spire.Pdf.PdfConformanceLevel.Pdf_A1A;
+            ppt.SaveToPdfOption.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1A;
             string result = "ToPDF_A1A.pdf";
             ppt.SaveToFile(result, FileFormat.PDF);
 
             //Save the PPT to PDF_A1B
-            ppt.SaveToPdfOption.PdfConformanceLevel = Spire.Pdf.PdfConformanceLevel.Pdf_A1B;
+            ppt.SaveToPdfOption.PdfConformanceLevel = PdfConformanceLevel.Pdf_A1B;
             result = "ToPDF_A1B.pdf";
             ppt.SaveToFile(result, FileFormat.PDF);
 
             //Save the PPT to PDF_A2A
-            ppt.SaveToPdfOption.PdfConformanceLevel = Spire.Pdf.PdfConformanceLevel.Pdf_A2A;
+            ppt.SaveToPdfOption.PdfConformanceLevel = PdfConformanceLevel.Pdf_A2A;
             result = "ToPDF_A2A.pdf";
             ppt.SaveToFile(result, FileFormat.PDF);
 
