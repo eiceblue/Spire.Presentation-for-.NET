@@ -19,7 +19,7 @@ Namespace SetBackground
 			presentation.Slides(0).SlideBackground.Type = BackgroundType.Custom
 			presentation.Slides(0).SlideBackground.Fill.FillType = FillFormatType.Gradient
 			presentation.Slides(0).SlideBackground.Fill.Gradient.GradientShape = GradientShapeType.Linear
-			presentation.Slides(0).SlideBackground.Fill.Gradient.GradientStyle = Spire.Presentation.Drawing.GradientStyle.FromCorner1
+			presentation.Slides(0).SlideBackground.Fill.Gradient.GradientStyle = Spire.Presentation.Drawing.GradientStyle.FromTopLeftCorner
 			presentation.Slides(0).SlideBackground.Fill.Gradient.GradientStops.Append(1f, KnownColors.SkyBlue)
 			presentation.Slides(0).SlideBackground.Fill.Gradient.GradientStops.Append(0f, KnownColors.White)
 
