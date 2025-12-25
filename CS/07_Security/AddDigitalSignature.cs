@@ -22,15 +22,15 @@ namespace AddDigitalSignature
             Presentation ppt = new Presentation();
             ppt.LoadFromFile(@"..\..\..\..\..\..\Data\AddDigitalSignature.pptx");
 
-            //Load the certificate
-            X509Certificate2 x509 = new X509Certificate2(@"..\..\..\..\..\..\Data\gary.pfx", "e-iceblue");
-
-            //Add a digital signature
-            ppt.AddDigitalSignature(x509, "111", DateTime.Now);
+            //Add a digital signature,The parameters: string certificatePath, string certificatePassword, string comments, DateTime signTime
+            ppt.AddDigitalSignature(@"..\..\..\..\..\..\Data\gary.pfx", "e-iceblue", "111", DateTime.Now);
 
             //Save the document
             ppt.SaveToFile("AddDigitalSignature_result.pptx", FileFormat.Pptx2010);
             System.Diagnostics.Process.Start("AddDigitalSignature_result.pptx");
+
+            //Dispose
+            ppt.Dispose();
         }
     }
 }

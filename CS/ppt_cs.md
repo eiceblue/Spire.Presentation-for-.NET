@@ -367,7 +367,7 @@ str.AppendLine("   Bottom: " + textFrameFormat.MarginBottom);
 Presentation presentation = new Presentation();
 
 //Load PPT file from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\Template_Az1.pptx");
+presentation.LoadFromFile(@"Data\Template_Az1.pptx");
 //Get the first slide
 ISlide slide = presentation.Slides[0];
 //Get a shape 
@@ -1185,7 +1185,7 @@ Presentation presentation = new Presentation();
 IMasterSlide master = presentation.Masters[0];
 
 //Append image to slide master
-String image = @"..\..\..\..\..\..\Data\Logo.png";
+String image = @"Data\Logo.png";
 RectangleF rff = new RectangleF(40, 40, 90, 90);
 IEmbedImage pic = master.Shapes.AppendEmbedImage(ShapeType.Rectangle, image, rff);
 pic.Line.FillFormat.FillType = FillFormatType.None;
@@ -1600,7 +1600,7 @@ for (int i = 0; i < presentation.Slides.Count; i++)
 ```csharp
 // Create a PPT document and load file
 Presentation ppt = new Presentation();
-ppt.LoadFromFile(@"..\..\..\..\..\..\Data\GetSlideText.pptx");
+ppt.LoadFromFile(@"Data\GetSlideText.pptx");
 
 // Iterate through each slide and extract text
 foreach (ISlide slide in ppt.Slides)
@@ -1645,7 +1645,7 @@ presentation.Masters[0].Layouts[0].InsertPlaceholder(InsertPlaceholderType.Text,
 ```csharp
 // Create a PPT document and load the file
 Presentation ppt = new Presentation();
-ppt.LoadFromFile(@"..\..\..\..\..\..\Data\CloneMaster2.pptx");
+ppt.LoadFromFile(@"Data\CloneMaster2.pptx");
 
 // Iterate the masters
 for (int i = 0; i < ppt.Masters[0].Layouts.Count; i++)
@@ -1671,8 +1671,8 @@ Presentation ppt = new Presentation();
 ppt.Slides.RemoveAt(0);
 
 // Load two PPT files
-Presentation ppt1 = new Presentation(@"..\..\..\..\..\..\Data\InputTemplate.pptx", FileFormat.Pptx2013);
-Presentation ppt2 = new Presentation(@"..\..\..\..\..\..\Data\TextTemplate.pptx", FileFormat.Pptx2013);
+Presentation ppt1 = new Presentation(@"Data\InputTemplate.pptx", FileFormat.Pptx2013);
+Presentation ppt2 = new Presentation(@"Data\TextTemplate.pptx", FileFormat.Pptx2013);
 
 // Append all slides in ppt1 to ppt
 for (int i = 0; i < ppt1.Slides.Count; i++)
@@ -2161,7 +2161,7 @@ shape.SetShapeArrange(ShapeArrange.BringForward);
 Presentation presentation = new Presentation();
 
 //Set background Image
-string ImageFile = @"..\..\..\..\..\..\Data\backgroundImg.png";
+string ImageFile = @"Data\backgroundImg.png";
 RectangleF rect = new RectangleF(0, 0, presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height);
 presentation.Slides[0].Shapes.AppendEmbedImage(ShapeType.Rectangle, ImageFile, rect);
 ```
@@ -2235,7 +2235,7 @@ animations[0].Timing.TriggerDelayTime = 0.6f;
 ## Embed SVG file into PowerPoint presentation
 ```csharp
 // Define the input SVG file path
-string inputFile = @"..\..\..\..\..\..\Data\charthtml.svg";            
+string inputFile = @"Data\charthtml.svg";            
 
 // Create Presentation object
 Presentation presentation = new Presentation();
@@ -2391,7 +2391,7 @@ for (int i = 0; i < shapelist.Count; i++)
 Presentation presentation = new Presentation();
 
 // Load the document from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\..\Data\Animation.pptx");
+presentation.LoadFromFile(@"..\Data\Animation.pptx");
 
 // Travel each slide
 foreach (ISlide slide in presentation.Slides)
@@ -2800,7 +2800,7 @@ ppt.Slides[0].Shapes.ZOrder(1, shape);
 Presentation presentation = new Presentation();
 
 //Load the file from disk.
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\Template_Ppt_7.pptx");
+presentation.LoadFromFile(@"Data\Template_Ppt_7.pptx");
 
 //Get the first slide from the sample document.
 ISlide slide = presentation.Slides[0];
@@ -3357,7 +3357,7 @@ int index = ppt.SectionList.IndexOf(section);
 Presentation ppt = new Presentation();
 
 //Load PowerPoint file from stream
-FileStream from_stream = File.OpenRead(@"..\..\..\..\..\..\Data\\OpenEncryptedPPT.pptx");
+FileStream from_stream = File.OpenRead(@"Data\\OpenEncryptedPPT.pptx");
 
 // The password
 String password = "123456";
@@ -3375,7 +3375,7 @@ ppt.LoadFromStream(from_stream, FileFormat.Auto, password);
 Presentation ppt = new Presentation();
 
 //Load PowerPoint file from stream
-FileStream from_stream = File.OpenRead(@"..\..\..\..\..\..\Data\InputTemplate.pptx");
+FileStream from_stream = File.OpenRead(@"Data\InputTemplate.pptx");
 ppt.LoadFromStream(from_stream, FileFormat.Pptx2013);        
 
 //Save the document
@@ -3487,7 +3487,7 @@ for (int i = 0; i < ppt.Slides.Count; i++)
 Presentation presentation = new Presentation();
 
 // Load the PPT document from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\GetProperties.pptx");
+presentation.LoadFromFile(@"Data\GetProperties.pptx");
 
 // Get the builtin properties 
 string application = presentation.DocumentProperty.Application;
@@ -3565,11 +3565,8 @@ presentation.SaveToFile(filePath, fileFormat);
 Presentation ppt = new Presentation();
 ppt.LoadFromFile("AddDigitalSignature.pptx");
 
-//Load the certificate
-X509Certificate2 x509 = new X509Certificate2("gary.pfx", "e-iceblue");
-
-//Add a digital signature
-ppt.AddDigitalSignature(x509, "111", DateTime.Now);
+//Add a digital signature,The parameters: string certificatePath, string certificatePassword, string comments, DateTime signTime
+ppt.AddDigitalSignature(@"gary.pfx", "e-iceblue", "111", DateTime.Now);
 
 //Save the document
 ppt.SaveToFile("AddDigitalSignature_result.pptx", FileFormat.Pptx2010);
@@ -3596,7 +3593,7 @@ bool isProtected = presentation.IsPasswordProtected("file_path.pptx");
 Presentation presentation = new Presentation();
 
 //Load the document from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\Encrypt.pptx");
+presentation.LoadFromFile(@"Data\Encrypt.pptx");
 
 //Get the password that the user entered
 string password = this.textBox1.Text;
@@ -3638,7 +3635,7 @@ presentation.SaveToFile(result, FileFormat.Pptx2013);
 Presentation presentation = new Presentation();
 
 //Load the PPT with password
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\OpenEncryptedPPT.pptx", FileFormat.Pptx2010, textBox1.Text);
+presentation.LoadFromFile(@"Data\OpenEncryptedPPT.pptx", FileFormat.Pptx2010, textBox1.Text);
 
 //Save as a new PPT with original password
 presentation.SaveToFile("Output.pptx", FileFormat.Pptx2010);
@@ -3710,7 +3707,7 @@ Presentation presentation = new Presentation();
 presentation.Slides[0].SlideBackground.Type = BackgroundType.Custom;
 presentation.Slides[0].SlideBackground.Fill.FillType = FillFormatType.Gradient;
 presentation.Slides[0].SlideBackground.Fill.Gradient.GradientShape = GradientShapeType.Linear;
-presentation.Slides[0].SlideBackground.Fill.Gradient.GradientStyle = Spire.Presentation.Drawing.GradientStyle.FromCorner1;
+presentation.Slides[0].SlideBackground.Fill.Gradient.GradientStyle = Spire.Presentation.Drawing.GradientStyle.FromTopLeftCorner;
 presentation.Slides[0].SlideBackground.Fill.Gradient.GradientStops.Append(1f, KnownColors.SkyBlue);
 presentation.Slides[0].SlideBackground.Fill.Gradient.GradientStops.Append(0f, KnownColors.White);
 
@@ -4941,7 +4938,7 @@ chart.Series[0].Distance = 15;
 IChart Chart = ppt.Slides[0].Shapes[0] as IChart;
 
 //Load image file in ppt
-Image image = Image.FromFile(@"..\..\..\..\..\..\Data\Logo.png");
+Image image = Image.FromFile(@"Data\Logo.png");
 IImageData IImage = ppt.Images.Append(image);
 
 //Create a ChartDataPoint object and specify the index
@@ -5871,7 +5868,7 @@ ppt.SaveToFile("ConvertPdfWithDefaultFont_out.pdf", FileFormat.PDF);
 //Create an instance of presentation document
 Presentation ppt = new Presentation();
 //Load file
-ppt.LoadFromFile(@"..\..\..\..\..\..\Data\Conversion.pps");
+ppt.LoadFromFile(@"Data\Conversion.pps");
 
 //Save the PPS document to PPTX file format
 string result = "ConvertPPSToPPTX.pptx";
@@ -5887,7 +5884,7 @@ ppt.SaveToFile(result, FileFormat.Pptx2013);
 Presentation presentation = new Presentation();
 
 // Load ppt file
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\CopyParagraph.pptx");
+presentation.LoadFromFile(@"Data\CopyParagraph.pptx");
 
 // Save the PPT document to OFD format
 String result = "ConvertPPTToOFD_result.ofd";
@@ -5944,7 +5941,7 @@ newPresentation.SaveToFile("output.tiff", Spire.Presentation.FileFormat.Tiff);
 Presentation presentation = new Presentation();
 
 //Load the PPT document from disk.
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\ChangeSlidePosition.pptx");
+presentation.LoadFromFile(@"Data\ChangeSlidePosition.pptx");
 
 //Get the first slide
 ISlide slide = presentation.Slides[0];
@@ -5983,7 +5980,7 @@ presentation.SaveToFile(result, Spire.Presentation.FileFormat.Dps);
 Presentation presentation = new Presentation();
 
 //Load PPT file from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\OneSlideToSVG.pptx");
+presentation.LoadFromFile(@"Data\OneSlideToSVG.pptx");
 
 //Convert the second slide to SVG
 byte[] svgByte = presentation.Slides[1].SaveToSVG();            
@@ -6008,13 +6005,13 @@ byte[] svgByte = ppt.Slides[0].Shapes[0].SaveAsSvgInSlide();
 ## Set custom fonts directory for presentation conversion
 ```csharp
 //Set global custom fonts 
-Presentation.SetCustomFontsDirctory(@"..\..\..\..\..\..\Data\fonts");
+Presentation.SetCustomFontsDirctory(@"Data\fonts");
 
 //Create a PPT document
 Presentation ppt = new Presentation();
 
 //Load PPT file 
-ppt.LoadFromFile(@"..\..\..\..\..\..\Data\toPDF.pptx");
+ppt.LoadFromFile(@"Data\toPDF.pptx");
 
 //Save the PPT to PDF file format
 String result = "output.pdf";
@@ -6030,7 +6027,7 @@ ppt.SaveToFile(result, FileFormat.PDF);
 Presentation presentation = new Presentation();
 
 //Load the PPT document from disk.
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\ChangeSlidePosition.pptx");
+presentation.LoadFromFile(@"Data\ChangeSlidePosition.pptx");
 
 //Get the second slide
 ISlide slide= presentation.Slides[1];
@@ -6094,7 +6091,7 @@ for (int i = 0; i < presentation.Slides.Count; i++)
 ```csharp
 // Create and load the file 
 Presentation ppt = new Presentation();
-ppt.LoadFromFile(@"..\..\..\..\..\..\Data\ExtractText.pptx");
+ppt.LoadFromFile(@"Data\ExtractText.pptx");
 // Convert to markdown format
 ppt.SaveToFile("ToMarkdown.md", FileFormat.Markdown);
 ppt.Dispose();
@@ -6109,7 +6106,7 @@ ppt.Dispose();
 Presentation presentation = new Presentation();
 
 //Load PPT file from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\ToPDF.pptx");
+presentation.LoadFromFile(@"Data\ToPDF.pptx");
 
 //Save the PPT to PDF file format
 presentation.SaveToFile("ToPdf.pdf", FileFormat.PDF);
@@ -6167,7 +6164,7 @@ presentation.SaveToFile("result.pdf", FileFormat.PDF);
 Presentation presentation = new Presentation();
 
 //Load the PPT file from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\ToPPTX.ppt");
+presentation.LoadFromFile(@"Data\ToPPTX.ppt");
 
 //Save the PPT document to PPTX file format
 presentation.SaveToFile("ToPPTX.pptx", FileFormat.Pptx2010);
@@ -6292,7 +6289,7 @@ public static void JoinTiffImages(Image[] images, string outFile, EncoderValue c
 //Create an instance of presentation document
 Presentation ppt = new Presentation();
 //Load file
-ppt.LoadFromFile(@"..\..\..\..\..\..\Data\Conversion.pptx");
+ppt.LoadFromFile(@"Data\Conversion.pptx");
 
 //Save the the XPS file
 string result = "ToXPS.xps";
@@ -6394,7 +6391,7 @@ foreach (IShape s in ppt.Slides[1].Shapes)
 ## Insert EMF image into PowerPoint slide
 ```csharp
 // EMF file path
-string ImageFile = @"..\..\..\..\..\..\Data\InsertEMF.emf";
+string ImageFile = @"Data\InsertEMF.emf";
 
 // Define image size
 Image img = Image.FromFile(ImageFile);
@@ -6413,7 +6410,7 @@ image.Line.FillType = FillFormatType.None;
 ## insert image into presentation slide
 ```csharp
 //Insert image to PPT
-string ImageFile2 = @"..\..\..\..\..\..\Data\InsertImage.png";
+string ImageFile2 = @"Data\InsertImage.png";
 RectangleF rect1 = new RectangleF(presentation.SlideSize.Size.Width / 2 - 280, 140, 120, 120);
 IEmbedImage image = presentation.Slides[0].Shapes.AppendEmbedImage(ShapeType.Rectangle, ImageFile2, rect1);
 image.Line.FillType = FillFormatType.None;
@@ -7478,7 +7475,7 @@ Presentation presentation = new Presentation();
 
 //Insert audio into the document
 RectangleF audioRect = new RectangleF(220, 240, 80, 80);
-presentation.Slides[0].Shapes.AppendAudioMedia(Path.GetFullPath(@"..\..\..\..\..\..\Data\Music.wav"), audioRect);
+presentation.Slides[0].Shapes.AppendAudioMedia(Path.GetFullPath(@"Data\Music.wav"), audioRect);
 ```
 
 ---
@@ -7488,8 +7485,8 @@ presentation.Slides[0].Shapes.AppendAudioMedia(Path.GetFullPath(@"..\..\..\..\..
 ```csharp
 //Insert video into the document
 RectangleF videoRect = new RectangleF(presentation.SlideSize.Size.Width / 2 - 125, 240, 150, 150);
-IVideo video = presentation.Slides[0].Shapes.AppendVideoMedia(Path.GetFullPath(@"..\..\..\..\..\..\Data\Video.mp4"), videoRect);
-video.PictureFill.Picture.Url = @"..\..\..\..\..\..\Data\Video.png";
+IVideo video = presentation.Slides[0].Shapes.AppendVideoMedia(Path.GetFullPath(@"Data\Video.mp4"), videoRect);
+video.PictureFill.Picture.Url = @"Data\Video.png";
 ```
 
 ---
@@ -7664,7 +7661,7 @@ for (int i = 0; i < comments.Length; i++)
 Presentation presentation = new Presentation();
 
 //Load document from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\Comments.pptx");
+presentation.LoadFromFile(@"Data\Comments.pptx");
 
 //Loop through comments
 foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
@@ -7689,7 +7686,7 @@ foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
 Presentation presentation = new Presentation();
 
 //Load the file from disk.
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\Template_Ppt_5.pptx");
+presentation.LoadFromFile(@"Data\Template_Ppt_5.pptx");
 
 //Retain the notes while converting PowerPoint file to svg file.
 presentation.IsNoteRetained = true;
@@ -8245,12 +8242,12 @@ for (int i = 0; i < presentation.Slides.Count; i++)
 Presentation ppt = new Presentation();
 
 //Load a image file
-Image image = Image.FromFile(@"..\..\..\..\..\..\Data\EmbedExcelAsOLE.png");
+Image image = Image.FromFile(@"Data\EmbedExcelAsOLE.png");
 IImageData oleImage = ppt.Images.Append(image);
 Rectangle rec = new Rectangle(80, 60, image.Width, image.Height);
 
 //Insert an OLE object to presentation based on the Excel data
-Spire.Presentation.IOleObject oleObject = ppt.Slides[0].Shapes.AppendOleObject("excel", File.ReadAllBytes(@"..\..\..\..\..\..\Data\EmbedExcelAsOLE.xlsx"), rec);
+Spire.Presentation.IOleObject oleObject = ppt.Slides[0].Shapes.AppendOleObject("excel", File.ReadAllBytes(@"Data\EmbedExcelAsOLE.xlsx"), rec);
 oleObject.SubstituteImagePictureFillFormat.Picture.EmbedImage = oleImage;
 oleObject.ProgId = "Excel.Sheet.12";
 ```
@@ -8377,7 +8374,7 @@ foreach (ISlide slide in presentation.Slides)
                 Presentation ppt = new Presentation();
                 ppt.LoadFromStream(pptStream, Spire.Presentation.FileFormat.Auto);
                 //Append an image in slide
-                ppt.Slides[0].Shapes.AppendEmbedImage(ShapeType.Rectangle, @"..\..\..\..\..\..\Data\Logo.png", new RectangleF(50, 50, 100, 100));
+                ppt.Slides[0].Shapes.AppendEmbedImage(ShapeType.Rectangle, @"Data\Logo.png", new RectangleF(50, 50, 100, 100));
                 ppt.SaveToFile(stream, Spire.Presentation.FileFormat.Pptx2013);
                 stream.Position = 0;
                 //Modify the data
@@ -8448,7 +8445,7 @@ ppt.Dispose();
 Presentation presentation = new Presentation();
 
 // Load the file from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\Template_Ppt_6.pptx");
+presentation.LoadFromFile(@"Data\Template_Ppt_6.pptx");
 
 // Print PowerPoint document to virtual printer (Microsoft XPS Document Writer)
 PresentationPrintDocument document = new PresentationPrintDocument(presentation);
@@ -8596,7 +8593,7 @@ presentation.Print(printerSettings);
 Presentation presentation = new Presentation();
 
 //Load PPT file from disk
-presentation.LoadFromFile(@"..\..\..\..\..\..\Data\Macros.ppt");
+presentation.LoadFromFile(@"Data\Macros.ppt");
 //Remove macros
 //Note, at present it only can work on macros in PPT file, has not supported for PPTM file yet.
 presentation.DeleteMacros();
@@ -8605,4 +8602,76 @@ presentation.SaveToFile(result,FileFormat.PPT);
 ```
 
 ---
+# spire.presentation csharp image conversion
+## convert images in PowerPoint master slide to SVG format
+```csharp
+//Get the master collection
+IMasterSlide masterSlide = presentation.Masters[0];
+
+for (int i = 0; i < masterSlide.Shapes.Count; i++)
+{
+    IShape shape = masterSlide.Shapes[i];
+    if (shape is SlidePicture)
+    {
+        SlidePicture ps = shape as SlidePicture;
+        byte[] svgByte = ps.SaveAsSvgInSlide();
+    }
+}
+```
+
+---
+
+# spire.presentation csharp shapes
+## add SVG as shapes to PowerPoint presentation
+```csharp
+//Create a PPT document
+Presentation presentation = new Presentation();
+
+// Add the SVG file as a shape onto the first slide of the presentation.
+presentation.Slides[0].Shapes.AddFromSVGAsShapes(@"Data\AddSVGAsShapes.svg");
+```
+
+---
+
+# spire.presentation ppt to svg conversion
+## convert PowerPoint slides to SVG using graphic tags
+```csharp
+//Create a PPT document
+Presentation presentation = new Presentation();
+
+//When saving a PPT document to SVG, save the graphics in the PPT document as image tags
+presentation.SaveToSvgOption.ConvertPictureUsingGraphicTag = true;
+
+//Convert each slide to SVG
+for (int i = 0; i < presentation.Slides.Count; i++)
+{
+    //Convert the slide to SVG
+    byte[] silde = presentation.Slides[i].SaveToSVG();
+}
+```
+
+---
+
+# spire.presentation csharp ole
+## get embedded file name from ole objects in powerpoint
+```csharp
+//Loop through the slides and shapes
+foreach (ISlide slide in presentation.Slides)
+{
+    foreach (IShape shape in slide.Shapes)
+    {
+        if (shape is IOleObject)
+        {
+            //Find OLE object
+            IOleObject oleObject = shape as IOleObject;
+            //Get OLE object label name
+            string oleFileName = oleObject.EmbeddedFileName;
+            MessageBox.Show("The name of the OLE object label is:" + oleFileName);
+        }
+    }
+}
+```
+
+---
+
 
