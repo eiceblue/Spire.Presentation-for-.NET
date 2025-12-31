@@ -27,6 +27,18 @@ namespace AddImageWatermark
 
             //Get the image you want to add as image watermark.
             IImageData image = presentation.Images.Append(Image.FromFile(@"..\..\..\..\..\..\Data\Logo.png"));
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+            FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\Logo.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, bytes.Length);
+            fileStream.Close();
+            Stream stream = new MemoryStream(bytes);
+            IImageData image = presentation.Images.Append(stream);
+            stream.Close();
+            fileStream.Close();
+            */
 
             //Set the properties of SlideBackground, and then fill the image as watermark.
             presentation.Slides[0].SlideBackground.Type = Spire.Presentation.Drawing.BackgroundType.Custom;

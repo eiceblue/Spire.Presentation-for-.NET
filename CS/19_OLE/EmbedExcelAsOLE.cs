@@ -26,6 +26,20 @@ namespace EmbedExcelAsOLE
 			//Load a image file
             Image image = Image.FromFile(@"..\..\..\..\..\..\Data\EmbedExcelAsOLE.png");
             IImageData oleImage = ppt.Images.Append(image);
+           
+            //////////////////Use the following code for netstandard dlls///////////////////////// 
+            /*
+            FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\EmbedExcelAsOLE.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, bytes.Length);
+            fileStream.Close();
+            Stream stream = new MemoryStream(bytes);          
+            IImageData oleImage = ppt.Images.Append(stream);
+            stream.Close();
+            fileStream.Close();
+            SkiaSharp.SKBitmap image = SkiaSharp.SKBitmap.Decode(@"..\..\..\..\..\..\Data\EmbedExcelAsOLE.png");
+            */
+            
             Rectangle rec = new Rectangle(80, 60, image.Width, image.Height);
 
             //Insert an OLE object to presentation based on the Excel data

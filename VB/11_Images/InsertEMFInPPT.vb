@@ -1,5 +1,10 @@
+Imports System
+Imports System.Collections.Generic
 Imports System.ComponentModel
+Imports System.Data
+Imports System.Drawing
 Imports System.Text
+Imports System.Windows.Forms
 Imports Spire.Presentation
 Imports Spire.Presentation.Drawing
 
@@ -10,7 +15,7 @@ Namespace InsertEMFInPPT
 			InitializeComponent()
 		End Sub
 
-		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRun.Click
+		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs)
 			'Load a PPT document
 			Dim presentation As New Presentation()
 			presentation.LoadFromFile("..\..\..\..\..\..\Data\BlankSample_N.pptx")
@@ -18,11 +23,15 @@ Namespace InsertEMFInPPT
 			'EMF file path
 			Dim ImageFile As String = "..\..\..\..\..\..\Data\InsertEMF.emf"
 
-            'Define image size
-            Dim img As Image
-            img = img.FromFile(ImageFile)
+			'Define image size
+			Dim img As Image = Image.FromFile(ImageFile)
 
-            Dim width As Single=img.Width/1.5f
+			'////////////////Use the following code for netstandard dlls/////////////////////////
+'            
+'            SkiaSharp.SKBitmap img = SkiaSharp.SKBitmap.Decode(ImageFile);
+'            
+
+			Dim width As Single=img.Width/1.5f
 			Dim height As Single=img.Height/1.5f
 			Dim rect As New RectangleF(100, 100, width,height)
 
@@ -39,7 +48,7 @@ Namespace InsertEMFInPPT
 		End Sub
 		Private Sub OutputViewer(ByVal filename As String)
 			Try
-				Process.Start(filename)
+				System.Diagnostics.Process.Start(filename)
 			Catch
 			End Try
 		End Sub

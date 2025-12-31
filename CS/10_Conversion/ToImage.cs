@@ -33,6 +33,23 @@ namespace ToImage
                 image.Save(fileName, System.Drawing.Imaging.ImageFormat.Png);
                 System.Diagnostics.Process.Start(fileName);
             }
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+            for (int i = 0; i < presentation.Slides.Count; i++)
+            {
+                using (var images = presentation.Slides[i].SaveAsImage())
+                {
+                    String fileName = String.Format("ToImage_img_{0}.png", i);
+                    FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+                    images.CopyTo(fileStream);
+                    fileStream.Flush();
+                    images.Dispose();
+                }
+            }
+            */
+            
+             presentation.Dispose();
 
         }
     }

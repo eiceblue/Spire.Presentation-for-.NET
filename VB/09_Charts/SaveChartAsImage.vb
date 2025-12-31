@@ -1,6 +1,11 @@
 ﻿Imports Spire.Presentation
+Imports System
+Imports System.Collections.Generic
 Imports System.ComponentModel
+Imports System.Data
+Imports System.Drawing
 Imports System.Text
+Imports System.Windows.Forms
 
 Namespace SaveChartAsImage
 	Partial Public Class Form1
@@ -9,7 +14,7 @@ Namespace SaveChartAsImage
 			InitializeComponent()
 		End Sub
 
-		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRun.Click
+		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs)
 			'Create a PPT document 
 			Dim presentation As New Presentation()
 
@@ -20,7 +25,17 @@ Namespace SaveChartAsImage
 			Dim image As Image = presentation.Slides(0).Shapes.SaveAsImage(0)
 			image.Save("Chart_result.png", System.Drawing.Imaging.ImageFormat.Png)
 
-			Process.Start("Chart_result.png")
+			'////////////////Use the following code for netstandard dlls/////////////////////////
+'            
+'            System.IO.Stream stream = ppt.Slides[0].SaveAsImage();
+'            byte[] buff = new byte[stream.Length];
+'            stream.Read(buff, 0, buff.Length);
+'            FileStream fs = new FileStream("Chart_result.png", FileMode.Create);
+'            fs.Write(buff);
+'            fs.Close();
+'			
+
+			System.Diagnostics.Process.Start("Chart_result.png")
 		End Sub
 	End Class
 End Namespace

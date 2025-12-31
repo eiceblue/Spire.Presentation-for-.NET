@@ -1,7 +1,12 @@
+Imports System
+Imports System.Collections.Generic
 Imports System.ComponentModel
+Imports System.Data
+Imports System.Drawing
 Imports System.IO
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Text
+Imports System.Windows.Forms
 Imports Spire.Presentation
 Imports Spire.Presentation.Drawing
 
@@ -11,7 +16,7 @@ Namespace EmbedZipIntoPPT
 		Public Sub New()
 			InitializeComponent()
 		End Sub
-		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRun.Click
+		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs)
 			'Load a ppt document
 			Dim ppt As New Presentation()
 			ppt.LoadFromFile("..\..\..\..\..\..\Data\EmbedZipIntoPPT.pptx")
@@ -27,6 +32,13 @@ Namespace EmbedZipIntoPPT
 			ole.ProgId = "Package"
 			Dim image As Image = Image.FromFile("..\..\..\..\..\..\Data\icon.png")
 			Dim oleImage As IImageData = ppt.Images.Append(image)
+
+			'////////////////Use the following code for netstandard dlls/////////////////////////
+'            
+'            FileStream stream = new FileStream(@"..\..\..\..\..\..\Data\icon.png", FileMode.Open);
+'            IImageData oleImage = ppt.Images.Append(stream);
+'            
+
 			ole.SubstituteImagePictureFillFormat.Picture.EmbedImage = oleImage
 
 			'Save the document
@@ -37,7 +49,7 @@ Namespace EmbedZipIntoPPT
 		End Sub
 		Private Sub OutputViewer(ByVal filename As String)
 			Try
-				Process.Start(filename)
+				System.Diagnostics.Process.Start(filename)
 			Catch
 			End Try
 		End Sub

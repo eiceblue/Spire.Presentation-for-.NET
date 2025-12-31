@@ -21,6 +21,12 @@ namespace SetImageTransparency
             //Create an Image from the specified file
             string imagePath = @"..\..\..\..\..\..\Data\Logo.png";
             Image image = Image.FromFile(imagePath);
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+            SkiaSharp.SKBitmap image = SkiaSharp.SKBitmap.Decode(imagePath);
+            */
+            
             float width = image.Width;
             float height = image.Height;
             RectangleF rect1 = new RectangleF(200, 100, width, height);

@@ -31,6 +31,23 @@ namespace ShapeToImage
                 image.Save(fileName, System.Drawing.Imaging.ImageFormat.Png);
                 System.Diagnostics.Process.Start(fileName);
             }
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+             for (int i = 0; i < presentation.Slides[0].Shapes.Count; i++)
+            {
+                using (var images = presentation.Slides[0].Shapes.SaveAsImage(i))
+                {
+                    string filename = String.Format("ShapeToImage-{0}.png", i);
+                    FileStream fileStream = new FileStream(filename, FileMode.Create, FileAccess.Write);
+                    images.CopyTo(fileStream);
+                    fileStream.Flush();
+                    images.Dispose();
+                }
+            }
+            */
+            
+            presentation.Dispose();
         }
     }
 }

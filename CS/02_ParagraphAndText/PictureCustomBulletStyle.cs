@@ -27,6 +27,18 @@ namespace PictureCustomBulletStyle
             {
                 //Set the bullet style of paragraph as picture
                 paragraph.BulletType = TextBulletType.Picture;
+                
+                //////////////////Use the following code for netstandard dlls/////////////////////////
+                /*
+                FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\icon.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+                byte[] bytes = new byte[fileStream.Length];
+                fileStream.Read(bytes, 0, bytes.Length);
+                fileStream.Close();
+                Stream stream = new MemoryStream(bytes);
+                paragraph.BulletPicture.EmbedImage = ppt.Images.Append(stream);
+                stream.Close();
+                */
+                
                 //Load a picture
                 Image bulletPicture = Image.FromFile(@"..\..\..\..\..\..\Data\icon.png");
                 //Add the picture as the bullet style of paragraph

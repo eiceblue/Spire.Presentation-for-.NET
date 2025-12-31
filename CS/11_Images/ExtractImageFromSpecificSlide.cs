@@ -29,6 +29,17 @@ namespace ExtractImageFromSpecificSlide
                     //Save to image
                     SlidePicture ps = s as SlidePicture;
                     ps.PictureFill.Picture.EmbedImage.Image.Save(string.Format("{0}.png", i));
+                    
+                    //////////////////Use the following code for netstandard dlls/////////////////////////
+                    /*
+                    String fileName = string.Format("SlidePic_{0}.png", i);
+                    SkiaSharp.SKImage image = SkiaSharp.SKImage.FromBitmap(ps.PictureFill.Picture.EmbedImage.Image);
+                    FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+                    image.Encode().SaveTo(fileStream);
+                    fileStream.Flush();
+                    image.Dispose();
+                    */
+                    
                     i++;
                 }
                 //It is the PictureShape object
@@ -37,6 +48,16 @@ namespace ExtractImageFromSpecificSlide
                     //Save to image
                     PictureShape ps = s as PictureShape;
                     ps.EmbedImage.Image.Save(string.Format("{0}.png", i));
+                    
+                    //////////////////Use the following code for netstandard dlls/////////////////////////
+                    /*
+                    String fileName = string.Format("ShapePic_{0}.png", i);
+                    SkiaSharp.SKImage image = SkiaSharp.SKImage.FromBitmap(ps.EmbedImage.Image);
+                    FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+                    image.Encode().SaveTo(fileStream);
+                    fileStream.Flush();
+                    image.Dispose();
+                    */
                     i++;
                 }
             }

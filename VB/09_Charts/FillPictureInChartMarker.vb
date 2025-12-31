@@ -1,5 +1,10 @@
+Imports System
+Imports System.Collections.Generic
 Imports System.ComponentModel
+Imports System.Data
+Imports System.Drawing
 Imports System.Text
+Imports System.Windows.Forms
 Imports Spire.Presentation
 Imports Spire.Presentation.Charts
 Imports Spire.Presentation.Drawing
@@ -11,7 +16,7 @@ Namespace FillPictureInChartMarker
 			InitializeComponent()
 		End Sub
 
-		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRun.Click
+		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs)
 			'Create PPT document and load file
 			Dim ppt As New Presentation()
 			ppt.LoadFromFile("..\..\..\..\..\..\Data\ChartSample4.pptx")
@@ -22,6 +27,17 @@ Namespace FillPictureInChartMarker
 			'Load image file in ppt
 			Dim image As Image = Image.FromFile("..\..\..\..\..\..\Data\Logo.png")
 			Dim IImage As IImageData = ppt.Images.Append(image)
+
+			'////////////////Use the following code for netstandard dlls/////////////////////////
+'            
+'            FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\Logo.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+'            byte[] bytes = new byte[fileStream.Length];
+'            fileStream.Read(bytes, 0, bytes.Length);
+'            Stream stream = new MemoryStream(bytes);
+'            IImageData IImage = ppt.Images.Append(stream);
+'            stream.Close();
+'            fileStream.Close();
+'			
 
 			'Create a ChartDataPoint object and specify the index
 			Dim dataPoint As New ChartDataPoint(Chart.Series(0))
@@ -47,7 +63,7 @@ Namespace FillPictureInChartMarker
 
 		Private Sub PPTDocViewer(ByVal fileName As String)
 			Try
-				Process.Start(fileName)
+				System.Diagnostics.Process.Start(fileName)
 			Catch
 			End Try
 		End Sub

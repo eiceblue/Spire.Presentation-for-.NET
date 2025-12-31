@@ -29,6 +29,18 @@ namespace AddImageInTableCell
             //Load the image and insert it into table cell
             IImageData pptImg = ppt.Images.Append(Image.FromFile(@"..\..\..\..\..\..\Data\PresentationIcon.png"));
 
+	//////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+			FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\PresentationIcon.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, bytes.Length);
+            fileStream.Close();
+            Stream stream = new MemoryStream(bytes);
+            IImageData pptImg = ppt.Images.Append(stream);
+            stream.Close();
+            fileStream.Close();
+            */
+            
             table[1, 1].FillFormat.FillType = FillFormatType.Picture;
             table[1, 1].FillFormat.PictureFill.Picture.EmbedImage = pptImg;
             table[1, 1].FillFormat.PictureFill.FillType = PictureFillType.Stretch;

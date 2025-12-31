@@ -1,5 +1,10 @@
+Imports System
+Imports System.Collections.Generic
 Imports System.ComponentModel
+Imports System.Data
+Imports System.Drawing
 Imports System.Text
+Imports System.Windows.Forms
 Imports Spire.Presentation
 
 Namespace ToImage
@@ -10,7 +15,7 @@ Namespace ToImage
 
 		End Sub
 
-		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRun.Click
+		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs)
 			'Create PPT document
 			Dim presentation As New Presentation()
 
@@ -22,8 +27,25 @@ Namespace ToImage
 				Dim fileName As String = String.Format("ToImage-img-{0}.png", i)
 				Dim image As Image = presentation.Slides(i).SaveAsImage()
 				image.Save(fileName, System.Drawing.Imaging.ImageFormat.Png)
-				Process.Start(fileName)
+				System.Diagnostics.Process.Start(fileName)
 			Next i
+
+			'////////////////Use the following code for netstandard dlls/////////////////////////
+'            
+'            for (int i = 0; i < presentation.Slides.Count; i++)
+'            {
+'                using (var images = presentation.Slides[i].SaveAsImage())
+'                {
+'                    String fileName = String.Format("ToImage_img_{0}.png", i);
+'                    FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+'                    images.CopyTo(fileStream);
+'                    fileStream.Flush();
+'                    images.Dispose();
+'                }
+'            }
+'            
+
+			 presentation.Dispose()
 
 		End Sub
 	End Class

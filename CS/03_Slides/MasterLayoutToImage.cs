@@ -25,6 +25,20 @@ namespace MasterLayoutToImage
                 Image image = ppt.Masters[0].Layouts[i].SaveAsImage();
                 String fileName = String.Format("{0}.png", i);
                 image.Save(fileName, System.Drawing.Imaging.ImageFormat.Png);
+                
+                //////////////////Use the following code for netstandard dlls/////////////////////////
+                /*
+                using (var images = ppt.Masters[0].Layouts[i].SaveAsImage())
+                {
+                    String filename = String.Format("MasterLayoutToImage_{0}.png", i);
+                    FileStream fileStream = new FileStream(filename, FileMode.Create, FileAccess.Write);                    
+                    images.Seek(0, SeekOrigin.Begin);
+                    images.CopyTo(fileStream);
+                    fileStream.Flush();
+                    fileStream.Close();
+                }
+                */
+                
             }
 
             ppt.Dispose();            

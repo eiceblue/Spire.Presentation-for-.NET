@@ -28,6 +28,19 @@ namespace SetImageFrameFormat
 
             //Add the image in document
             IImageData imageData = presentation.Images.Append(image);
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+            FileStream fileStream = new FileStream(imageFile, FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, bytes.Length);
+            fileStream.Close();
+            Stream stream = new MemoryStream(bytes);
+            IImageData imageData = presentation.Images.Append(stream);
+            stream.Close();
+            fileStream.Close();
+            */
+            
             RectangleF rect = new RectangleF(100,100,imageData.Width/2,imageData.Height/2);
             IEmbedImage pptImage = presentation.Slides[0].Shapes.AppendEmbedImage(ShapeType.Rectangle, imageData, rect);
 

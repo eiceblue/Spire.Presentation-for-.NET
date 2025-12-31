@@ -1,3 +1,6 @@
+Imports System
+Imports System.Drawing
+Imports System.Windows.Forms
 Imports Spire.Presentation
 
 Namespace PictureCustomBulletStyle
@@ -7,7 +10,7 @@ Namespace PictureCustomBulletStyle
 			InitializeComponent()
 		End Sub
 
-		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRun.Click
+		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs)
 			'Create an instance of presentation document
 			Dim ppt As New Presentation()
 			'Load file
@@ -20,6 +23,18 @@ Namespace PictureCustomBulletStyle
 			For Each paragraph As TextParagraph In shape.TextFrame.Paragraphs
 				'Set the bullet style of paragraph as picture
 				paragraph.BulletType = TextBulletType.Picture
+
+				'////////////////Use the following code for netstandard dlls/////////////////////////
+'                
+'                FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\icon.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+'                byte[] bytes = new byte[fileStream.Length];
+'                fileStream.Read(bytes, 0, bytes.Length);
+'                fileStream.Close();
+'                Stream stream = new MemoryStream(bytes);
+'                paragraph.BulletPicture.EmbedImage = ppt.Images.Append(stream);
+'                stream.Close();
+'                
+
 				'Load a picture
 				Dim bulletPicture As Image = Image.FromFile("..\..\..\..\..\..\Data\icon.png")
 				'Add the picture as the bullet style of paragraph
@@ -34,7 +49,7 @@ Namespace PictureCustomBulletStyle
 
 		Private Sub PresentationDocViewer(ByVal fileName As String)
 			Try
-				Process.Start(fileName)
+				System.Diagnostics.Process.Start(fileName)
 			Catch
 			End Try
 		End Sub

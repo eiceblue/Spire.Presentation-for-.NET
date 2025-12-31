@@ -26,6 +26,18 @@ namespace UpdateImage
             //Append a new image to replace an existing image
             IImageData image = ppt.Images.Append(Image.FromFile(@"..\..\..\..\..\..\Data\PresentationIcon.png"));
 
+			//////////////////Use the following code for netstandard dlls/////////////////////////
+			/*
+			FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\PresentationIcon.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, bytes.Length);
+            fileStream.Close();
+            Stream stream = new MemoryStream(bytes);
+            IImageData image = ppt.Images.Append(stream);
+            stream.Close();
+            fileStream.Close();
+			*/
+            
             //Replace the image which title is "image1" with the new image
             foreach (IShape shape in slide.Shapes)
             {

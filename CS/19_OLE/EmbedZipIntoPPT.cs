@@ -35,6 +35,13 @@ namespace EmbedZipIntoPPT
             ole.ProgId = "Package";
             Image image = Image.FromFile(@"..\..\..\..\..\..\Data\icon.png");
             IImageData oleImage = ppt.Images.Append(image);
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+            FileStream stream = new FileStream(@"..\..\..\..\..\..\Data\icon.png", FileMode.Open);
+            IImageData oleImage = ppt.Images.Append(stream);
+            */
+            
             ole.SubstituteImagePictureFillFormat.Picture.EmbedImage = oleImage;
 
             //Save the document

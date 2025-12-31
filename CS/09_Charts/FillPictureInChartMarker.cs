@@ -30,7 +30,18 @@ namespace FillPictureInChartMarker
             //Load image file in ppt
             Image image = Image.FromFile(@"..\..\..\..\..\..\Data\Logo.png");
             IImageData IImage = ppt.Images.Append(image);
-
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+            FileStream fileStream = new FileStream(@"..\..\..\..\..\..\Data\Logo.png", FileMode.Open, FileAccess.Read, FileShare.Read);
+            byte[] bytes = new byte[fileStream.Length];
+            fileStream.Read(bytes, 0, bytes.Length);
+            Stream stream = new MemoryStream(bytes);
+            IImageData IImage = ppt.Images.Append(stream);
+            stream.Close();
+            fileStream.Close();
+			*/
+            
             //Create a ChartDataPoint object and specify the index
             ChartDataPoint dataPoint = new ChartDataPoint(Chart.Series[0]);
             dataPoint.Index = 0;

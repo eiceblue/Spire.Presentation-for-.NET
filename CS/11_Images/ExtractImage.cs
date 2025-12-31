@@ -28,8 +28,17 @@ namespace ExtractImage
                 //Extract image
                 Image image = ppt.Images[i].Image;
                 image.Save(ImageName);
-                System.Diagnostics.Process.Start(ImageName);
+              
+                //////////////////Use the following code for netstandard dlls/////////////////////////
+                /*
+                SkiaSharp.SKImage image = SkiaSharp.SKImage.FromBitmap(ppt.Images[i].Image);
+                FileStream fileStream = new FileStream(ImageName, FileMode.Create, FileAccess.Write);
+                image.Encode().SaveTo(fileStream);
+                fileStream.Flush();
+                image.Dispose();
+                */          
             }
+            ppt.Dispose();
         }
     }
 }

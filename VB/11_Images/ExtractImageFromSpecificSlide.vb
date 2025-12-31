@@ -1,3 +1,5 @@
+Imports System
+Imports System.Windows.Forms
 Imports Spire.Presentation
 
 Namespace ExtractImageFromSpecificSlide
@@ -7,7 +9,7 @@ Namespace ExtractImageFromSpecificSlide
 			InitializeComponent()
 		End Sub
 
-		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRun.Click
+		Private Sub btnRun_Click(ByVal sender As Object, ByVal e As EventArgs)
 			'Create an instance of presentation document
 			Dim ppt As New Presentation()
 			'Load file
@@ -22,6 +24,17 @@ Namespace ExtractImageFromSpecificSlide
 					'Save to image
 					Dim ps As SlidePicture = TryCast(s, SlidePicture)
 					ps.PictureFill.Picture.EmbedImage.Image.Save(String.Format("{0}.png", i))
+
+					'////////////////Use the following code for netstandard dlls/////////////////////////
+'                    
+'                    String fileName = string.Format("SlidePic_{0}.png", i);
+'                    SkiaSharp.SKImage image = SkiaSharp.SKImage.FromBitmap(ps.PictureFill.Picture.EmbedImage.Image);
+'                    FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+'                    image.Encode().SaveTo(fileStream);
+'                    fileStream.Flush();
+'                    image.Dispose();
+'                    
+
 					i += 1
 				End If
 				'It is the PictureShape object
@@ -29,6 +42,16 @@ Namespace ExtractImageFromSpecificSlide
 					'Save to image
 					Dim ps As PictureShape = TryCast(s, PictureShape)
 					ps.EmbedImage.Image.Save(String.Format("{0}.png", i))
+
+					'////////////////Use the following code for netstandard dlls/////////////////////////
+'                    
+'                    String fileName = string.Format("ShapePic_{0}.png", i);
+'                    SkiaSharp.SKImage image = SkiaSharp.SKImage.FromBitmap(ps.EmbedImage.Image);
+'                    FileStream fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+'                    image.Encode().SaveTo(fileStream);
+'                    fileStream.Flush();
+'                    image.Dispose();
+'                    
 					i += 1
 				End If
 			Next s

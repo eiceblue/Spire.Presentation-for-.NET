@@ -28,6 +28,12 @@ namespace InsertEMFInPPT
 
             //Define image size
             Image img = Image.FromFile(ImageFile);
+            
+            //////////////////Use the following code for netstandard dlls/////////////////////////
+            /*
+            SkiaSharp.SKBitmap img = SkiaSharp.SKBitmap.Decode(ImageFile);
+            */
+            
             float width=img.Width/1.5f;
             float height=img.Height/1.5f;
             RectangleF rect = new RectangleF(100, 100, width,height);
