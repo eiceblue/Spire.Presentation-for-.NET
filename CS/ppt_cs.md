@@ -8673,5 +8673,73 @@ foreach (ISlide slide in presentation.Slides)
 ```
 
 ---
+# 02_ParagraphAndText - HighlightTextByRegex
+## Highlights text in a PowerPoint slide matching a specified regular expression pattern.
+```csharp
+Regex regex = new Regex(@"\bSpire\b");
+IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+TextHighLightingOptions options = new TextHighLightingOptions();
+shape.TextFrame.HighLightRegex(regex, Color.Red, options);
+```
+
+---
+
+# 10_Conversion - ToImageWithResolution
+## Render a presentation slide to an image with custom DPI resolution
+```csharp
+// Create an instance of presentation document
+Presentation ppt = new Presentation();
+
+// Render the first slide to an image with custom DPI
+Image img = ppt.SaveToImage(0, 100, 100);
+```
+
+---
+
+# 10_Conversion - ToVideo
+## Converts a PowerPoint presentation to a video file using Spire.Presentation.
+```csharp
+public static void ConvertToVideo(string pptFilePath, string ffmpegPath, string outputFilePath)
+{
+    Presentation ppt = new Presentation();
+    ppt.LoadFromFile(pptFilePath);
+
+    SaveToVideoOption saveOption = new SaveToVideoOption(ffmpegPath);
+    saveOption.Fps = 10;
+    saveOption.DurationForEachSlide = 5;
+    ppt.SaveToVideoOption = saveOption;
+
+    ppt.SaveToFile(outputFilePath, FileFormat.MP4);
+    ppt.Dispose();
+}
+```
+
+---
+
+# 11_Images - CompressImages
+## Compress images in a PowerPoint presentation by removing cropped areas and reducing resolution (e.g., 50 DPI)
+```csharp
+Presentation presentation = new Presentation();
+presentation.LoadFromFile(@"..\..\..\..\..\..\Data\ExtractImage.pptx");
+
+foreach (ISlide slide in presentation.Slides)
+{
+    foreach (IShape shape in slide.Shapes)
+    {
+        if (shape is SlidePicture)
+        {
+            SlidePicture ps = shape as SlidePicture;
+            // Compress image: Remove cropped areas (true) and compress image resolution to 150 DPI
+            ps.PictureFill.CompressImage(true, 50f);
+        }
+    }
+}
+
+String result = "CompressImages_result.pptx";
+presentation.SaveToFile(result, FileFormat.Pptx2013);
+```
+
+---
+
 
 
